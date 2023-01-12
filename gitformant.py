@@ -201,9 +201,14 @@ def informant_analysis(repo_names, confirm_keywords):
 
 def github_search(query, per_page="100", page_num="1"):
     # Github Search API endpoint for code on Github
-    github_endpoint = "https://api.github.com/search/code?q=\"%s\"&per_page=%s&page=%s&access_token=%s" % (keyword, per_page, page_num, GITHUB_API_TOKEN)
+    github_endpoint = "https://api.github.com/search/code?q=\%s\" % (keywordc)
     # Make the request
-    req = requests.get(github_endpoint)
+    headers = {
+        'Accept': 'application/vnd.github+json',
+        'Authorization': 'Bearer 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',
+        'X-GitHub-Api-Version': '2022-11-28'
+    }
+    req = requests.get(github_endpoint, headers=headers)
     # Save the response in data
     data = json.loads(req.content)
     # For each repo name, append it to the global repo list
