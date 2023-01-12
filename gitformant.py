@@ -205,7 +205,7 @@ def github_search(query, per_page="100", page_num="1"):
     # Make the request
     headers = {
         'Accept': 'application/vnd.github+json',
-        'Authorization': 'Bearer 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',
+        'Authorization': 'Bearer github_pat_',
         'X-GitHub-Api-Version': '2022-11-28'
     }
     req = requests.get(github_endpoint, headers=headers)
